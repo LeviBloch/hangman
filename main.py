@@ -1,3 +1,5 @@
+from playsound import playsound
+
 secretPhrase = "bruh moment"
 
 lettersGuessed = []
@@ -23,6 +25,7 @@ def printSecretPhrase():
 # main loop
 while len(incorrectGuesses) <= maxIncorrectGuesses:
     printSecretPhrase()
+    print("Incorrect guesses: " + str(incorrectGuesses))
     print("Enter a guess: ")
     guess = input()
     if len(guess) > 1 or len(guess) < 1:
@@ -34,3 +37,10 @@ while len(incorrectGuesses) <= maxIncorrectGuesses:
     for letter in secretPhrase:
         if letter == guess:
             correctGuesses.append(guess)
+    if guess not in correctGuesses:
+        incorrectGuesses.append(guess)
+        playsound('C:/Users/Levi/Documents/GitHub/hangman/Wrong3.mp3')
+
+
+
+print("god you're terrible at this game, die")
